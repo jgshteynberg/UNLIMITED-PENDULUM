@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Connected Pendulum Simulator</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="layout">
+    <section class="panel controls">
+      <h1>Connected Pendulum Simulator</h1>
+      <p>Each row is one linked arm in the chain. Press <strong>Apply</strong> to restart from your values.</p>
+
+      <div class="control-row">
+        <label for="gravity">Gravity (m/s²)</label>
+        <input id="gravity" type="number" step="0.1" value="9.81" />
+      </div>
+
+      <div class="control-row split">
+        <label for="count">Number of linked arms</label>
+        <input id="count" type="number" min="1" max="10" value="3" />
+        <button id="update-count" type="button">Update</button>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Length (m)</th>
+              <th>Initial angle (°)</th>
+              <th>Initial ω (rad/s)</th>
+              <th>Mass (kg)</th>
+              <th>Damping</th>
+            </tr>
+          </thead>
+          <tbody id="pendulum-rows"></tbody>
+        </table>
+      </div>
+
+      <div class="buttons">
+        <button id="apply" type="button">Apply</button>
+        <button id="pause" type="button">Pause</button>
+        <button id="reset" type="button">Reset View</button>
+      </div>
+    </section>
+
+    <section class="panel canvas-panel">
+      <canvas id="sim-canvas" width="1000" height="650" aria-label="Connected pendulum simulation"></canvas>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
