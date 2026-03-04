@@ -1,0 +1,141 @@
+:root {
+  color-scheme: dark;
+  --bg: #0e1727;
+  --panel: #17263b;
+  --panel-border: #2b3f58;
+  --text: #eaf2ff;
+  --muted: #aac2e3;
+  --accent: #4ab2ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #193354 0, var(--bg) 55%);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.layout {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(420px, 540px) 1fr;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.panel {
+  background: color-mix(in srgb, var(--panel) 90%, black 10%);
+  border: 1px solid var(--panel-border);
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.controls h1 {
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+}
+
+.controls p {
+  margin-top: 0;
+  color: var(--muted);
+}
+
+.control-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.control-row.split input {
+  max-width: 90px;
+}
+
+label {
+  flex: 1;
+  font-size: 0.95rem;
+}
+
+input,
+button {
+  font: inherit;
+}
+
+input {
+  width: 100%;
+  background: #0f1b2d;
+  border: 1px solid #37506f;
+  color: var(--text);
+  padding: 0.35rem 0.45rem;
+  border-radius: 8px;
+}
+
+button {
+  border: 1px solid #3d70a2;
+  color: #dff3ff;
+  background: #1e4f7e;
+  border-radius: 8px;
+  padding: 0.45rem 0.8rem;
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(1.08);
+}
+
+.table-wrap {
+  overflow: auto;
+  max-height: 46vh;
+  margin-bottom: 0.8rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+th,
+td {
+  border-bottom: 1px solid #274262;
+  padding: 0.35rem;
+  text-align: left;
+}
+
+td input {
+  min-width: 90px;
+}
+
+.buttons {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.canvas-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#sim-canvas {
+  width: min(100%, 1200px);
+  height: min(100%, 88vh);
+  border: 1px solid #2d4868;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #0f2136 0%, #0a1727 60%, #0c141d 100%);
+}
+
+@media (max-width: 1200px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .table-wrap {
+    max-height: 32vh;
+  }
+}
